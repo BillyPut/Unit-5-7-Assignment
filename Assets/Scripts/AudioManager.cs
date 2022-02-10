@@ -1,6 +1,7 @@
 using UnityEngine.Audio;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
@@ -9,7 +10,9 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager instance;
 
+    public bool backgroundMusic = true;
 
+    //public bool backgroundMusic = true;
 
     // Start is called before the first frame update
     void Awake ()
@@ -42,11 +45,20 @@ public class AudioManager : MonoBehaviour
 
     void Start ()
     {
-        Play("BackgroundMusic");
+        
+
     }
 
     void Update()
     {
+        if (backgroundMusic == true)
+        {
+            Play("BackgroundMusic");
+        }
+       
+
+
+
         foreach (Sound s in sounds)
         {
             s.source.volume = s.volume;
@@ -54,14 +66,34 @@ public class AudioManager : MonoBehaviour
             s.source.loop = s.loop;
         }
 
+        
+           
+
     }
-    
 
-
- 
+   
     public void Play (string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.Play();
     }
+
+    public void musicChanged()
+    {
+        if (backgroundMusic == true)
+        {
+            backgroundMusic = false;
+        }
+        else
+        {
+            backgroundMusic = true;
+        }
+    
+    }
+
+
+
+
+
+
 }

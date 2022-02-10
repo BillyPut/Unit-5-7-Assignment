@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ButtonManagerScript : MonoBehaviour
 {
@@ -19,4 +20,18 @@ public class ButtonManagerScript : MonoBehaviour
     {
         
     }
+
+    public void StartButtonPressed()
+    {
+        SceneManager.LoadScene("Scene2");
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+
+
+
 }
