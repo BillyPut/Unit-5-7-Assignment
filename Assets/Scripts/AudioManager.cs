@@ -3,93 +3,94 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class AudioManager : MonoBehaviour
 {
 
-    public Sound[] sounds;
+    public AudioClip[] sounds;
 
     public static AudioManager instance;
 
-    public bool backgroundMusic = true;
+    public Slider sfxSlider;
 
-    //public bool backgroundMusic = true;
+    
+    public AudioMixer musicMixer, soundEffectsMixer;
+    public AudioSource musicSource, soundEffecSource;
+
+    float sfxVolume;
 
     // Start is called before the first frame update
-    void Awake ()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        DontDestroyOnLoad(gameObject);
-
-
-        foreach (Sound s in sounds)
-        {
-            s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.clip;
-
-
-
-            s.source.volume = s.volume;
-            s.source.pitch = s.pitch;
-            s.source.loop = s.loop;
-        }
-    }
+   
 
     void Start ()
     {
-        
+        musicSource.PlayOneShot(sounds[0]);
+
+        if (PlayerPrefs.HasKey("sfx"))
+        {
+            sfxVolume = PlayerPrefs.GetFloat("sfx");
+        }
+        else
+        {
+            PlayerPrefs.SetFloat("sfx", -20f );
+        }
+
+        sfxSlider.value = sfxVolume;
+
+        print("sfx vol=" + sfxVolume);
 
     }
 
     void Update()
     {
-        if (backgroundMusic == true)
-        {
-            Play("BackgroundMusic");
-        }
-       
-
-
-
-        foreach (Sound s in sounds)
-        {
-            s.source.volume = s.volume;
-            s.source.pitch = s.pitch;
-            s.source.loop = s.loop;
-        }
-
         
-           
 
-    }
-
-   
-    public void Play (string name)
-    {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        s.source.Play();
-    }
-
-    public void musicChanged()
-    {
-        if (backgroundMusic == true)
+        if (Input.GetKeyDown("up") || Input.GetKeyDown("down"))
         {
-            backgroundMusic = false;
+            soundEffecSource.PlayOneShot(sounds[1]);
+        }
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            soundEffecSource.PlayOneShot(sounds[2]);
+
+        }
+
+
+
+
+
+
+
+    }
+
+    public void ToggleMusic(bool isOn)
+    {
+        if (isOn == true)
+        {
+            musicSource.PlayOneShot(sounds[0]);
         }
         else
         {
-            backgroundMusic = true;
+            musicSource.Stop();
         }
-    
     }
+
+
+
+    public void SetVolumeMusic(float volume)
+    {
+        musicMixer.SetFloat("musicVolume", volume);    
+    }
+    public void SetVolumeSFX(float volume)
+    {
+        soundEffectsMixer.SetFloat("soundEffecVolume", volume);
+        PlayerPrefs.SetFloat("sfx", volume);
+
+    }
+    
+
+
+ 
 
 
 
