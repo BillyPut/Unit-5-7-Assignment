@@ -6299,8 +6299,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1553161490}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16, y: -8.34, z: 80}
-  m_LocalScale: {x: 17.3814, y: 16.166, z: 1}
+  m_LocalPosition: {x: 11.9, y: -6.9, z: 80}
+  m_LocalScale: {x: 14.638614, y: 14.24548, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -7769,6 +7769,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 13182107f288fdc47a11f9216c8f062b, type: 3}
   - {fileID: 8300000, guid: 67dd73a8fb8b99e4d8c8d793c86c4324, type: 3}
   sfxSlider: {fileID: 2114046699}
+  musicSlider: {fileID: 896969161}
   musicMixer: {fileID: 24100000, guid: e810e9bf2d464f64aa3f2c065b7fd79e, type: 2}
   soundEffectsMixer: {fileID: 24100000, guid: 6e0da1258145b5a43b3ba87892779cdd, type: 2}
   musicSource: {fileID: 1885204141}
@@ -9042,7 +9043,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.82300985}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -9053,7 +9054,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 2.6460197}
   m_EdgeRadius: 0
 --- !u!1 &2146078352
 GameObject:

@@ -12,12 +12,14 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
 
     public Slider sfxSlider;
+    public Slider musicSlider;
 
     
     public AudioMixer musicMixer, soundEffectsMixer;
     public AudioSource musicSource, soundEffecSource;
 
     float sfxVolume;
+    float musicVolume;
 
     // Start is called before the first frame update
    
@@ -38,6 +40,21 @@ public class AudioManager : MonoBehaviour
         sfxSlider.value = sfxVolume;
 
         print("sfx vol=" + sfxVolume);
+
+       
+
+        if (PlayerPrefs.HasKey("music"))
+        {
+            musicVolume = PlayerPrefs.GetFloat("music");
+        }
+        else
+        {
+            PlayerPrefs.SetFloat("music", -20f);
+        }
+
+        musicSlider.value = musicVolume;
+
+        print("music vol=" + musicVolume);
 
     }
 
@@ -79,7 +96,8 @@ public class AudioManager : MonoBehaviour
 
     public void SetVolumeMusic(float volume)
     {
-        musicMixer.SetFloat("musicVolume", volume);    
+        musicMixer.SetFloat("musicVolume", volume);
+        PlayerPrefs.SetFloat("music", volume);
     }
     public void SetVolumeSFX(float volume)
     {
