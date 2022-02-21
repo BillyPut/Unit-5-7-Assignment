@@ -23,6 +23,7 @@ public class AudioManager : MonoBehaviour
 
     // Start is called before the first frame update
    
+   
 
     void Start ()
     {
@@ -34,14 +35,14 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
-            PlayerPrefs.SetFloat("sfx", -20f );
+            PlayerPrefs.SetFloat("sfx", -20f);
         }
 
         sfxSlider.value = sfxVolume;
 
-        print("sfx vol=" + sfxVolume);
 
-       
+
+
 
         if (PlayerPrefs.HasKey("music"))
         {
@@ -54,13 +55,16 @@ public class AudioManager : MonoBehaviour
 
         musicSlider.value = musicVolume;
 
-        print("music vol=" + musicVolume);
 
     }
 
     void Update()
     {
         
+
+        
+        
+
 
         if (Input.GetKeyDown("up") || Input.GetKeyDown("down"))
         {
