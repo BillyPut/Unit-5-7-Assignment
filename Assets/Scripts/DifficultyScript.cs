@@ -8,15 +8,15 @@ public class DifficultyScript : MonoBehaviour
 {
 
     private TextMeshProUGUI textMesH;
-    public string difficulty;
+    public int difficulty;
+    private int diffIndex;
 
     // Start is called before the first frame update
     void Start()
     {
         
         textMesH = GetComponent<TextMeshProUGUI>();
-        difficulty = "Easy";
-        textMesH.text = "Easy";
+        LoadPrefs();
     }
 
     // Update is called once per frame
@@ -25,30 +25,56 @@ public class DifficultyScript : MonoBehaviour
         
     }
 
+    public void changeDif()
+    {
+        diffIndex += 1;
+        if (diffIndex > 2)
+        {
+            diffIndex = 0;
+        }
+
+        SetDif(diffIndex);
+    }
+
+    public void SetDif(int tDif)
+    {
+        difficulty = tDif;
+        PlayerPrefs.SetInt("Difficulty", tDif);
+        difficultyChanged();
+    }
+
     public void difficultyChanged()
     {
 
-        if (difficulty == "Easy")
+        if (difficulty == 0)
         {
-            difficulty = "Medium";
+            
 
             textMesH.text = "Medium";
 
         }
-        else if (difficulty == "Medium")
+        if (difficulty == 1)
         {
-            difficulty = "Hard";
+           
 
             textMesH.text = "Hard";
         }
-        else
+        if (difficulty == 2)
         {
-            difficulty = "Easy";
+            
 
             textMesH.text = "Easy";
 
         }
 
+        diffIndex = difficulty;
+
+    }
+
+    public void LoadPrefs()
+    {
+        difficulty = PlayerPrefs.GetInt("Difficulty");
+        difficultyChanged();
     }
 
 }

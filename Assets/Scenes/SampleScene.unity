@@ -1253,7 +1253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aa487bc73044324b9ab425cd6f8c3d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficulty: 
+  difficulty: 0
 --- !u!1 &750431955
 GameObject:
   m_ObjectHideFlags: 0
@@ -6217,7 +6217,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &1553161491
 Rigidbody2D:
   serializedVersion: 4
@@ -6833,7 +6833,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 595333808}
         m_TargetAssemblyTypeName: DifficultyScript, Assembly-CSharp
-        m_MethodName: difficultyChanged
+        m_MethodName: changeDif
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8963,7 +8963,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &2145038149
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9024,7 +9024,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2145038148}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: -10.75, z: 0}
+  m_LocalPosition: {x: 0.5, y: -13.3, z: 0}
   m_LocalScale: {x: 62.600857, y: 1.1248, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
