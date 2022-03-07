@@ -34,7 +34,10 @@ public class LevelManagerScript : MonoBehaviour
 
     }
 
-    
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
 
    
 }
